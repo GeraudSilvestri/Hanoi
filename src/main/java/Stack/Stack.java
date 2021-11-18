@@ -20,11 +20,7 @@ public class Stack {
 
     public Element pop(){
         Element temp = start;
-
-        if(start.getNext() != null){
-            start = start.getNext();
-        }
-
+        start = start.getNext();
         size--;
         return temp;
     }
@@ -34,10 +30,6 @@ public class Stack {
     }
 
     public String toString(){
-        if(start == null){
-            return "pile vide";
-        }
-
         StringBuilder string = new StringBuilder();
 
         Examinator ite = getIterator();
@@ -61,5 +53,9 @@ public class Stack {
         }
 
         return array;
+    }
+
+    public int size(){
+        return size;
     }
 }

@@ -1,14 +1,15 @@
+import Hanoi.Hanoi;
 import Stack.Stack;
 
 public class Main {
-    public static void main(String[] args){
-        Stack stack = new Stack();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack);
+    private static Stack stack1, stack2, stack3;
 
-        System.out.println(stack.pop());
-        System.out.println(stack);
+    public static void main(String[] args){
+        Hanoi hanoi = new Hanoi(4);
+        hanoi.solve();
     }
+
+
+
+
 }
