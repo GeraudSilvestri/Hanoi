@@ -5,11 +5,13 @@ public class Main {
     private static Stack stack1, stack2, stack3;
 
     public static void main(String[] args){
-        Hanoi hanoi = new Hanoi(4);
-        hanoi.solve();
+
+        if(args.length != 1){
+            System.out.println("Un seul argument requis.");
+        }
+        else{
+            Hanoi hanoi = new Hanoi(Integer.parseInt(args[0]));
+            hanoi.solve();
+        }
     }
-
-
-
-
 }
