@@ -8,6 +8,7 @@ public class Hanoi {
     Stack[] stakes;
     int counter;
     HanoiDisplayer display;
+    Boolean finished;
 
     public Hanoi(int nbDisks){
         this(nbDisks, new HanoiDisplayer(0));
@@ -28,10 +29,12 @@ public class Hanoi {
     }
 
     public void solve(){
+        finished = false;
         solve(nbDisks, stakes[0], stakes[1], stakes[2]);
+        finished = true;
     }
 
-    public void solve(int n, Stack from, Stack middle, Stack dest){
+    private void solve(int n, Stack from, Stack middle, Stack dest){
         if(n > 0) {
             solve(n - 1, from, dest, middle);
             dest.push(from.pop());
@@ -43,5 +46,21 @@ public class Hanoi {
 
     public Stack[] getStakes(){return stakes;}
 
-    public int getCounter() {return counter;}
+    public int[][] status(){
+        int[][] toReturn = new int[NB_STAKE][nbDisks];
+
+        for(int i = 0; i < NB_STAKE; ++i){
+            Object[] values = stakes[i].state();
+            for(int j = 0; j < nbDisks; j++){
+                toReturn[i][j] = (int)values[j];
+            }
+        }
+        return toReturn;
+    }
+
+    public Boolean isFinished(){
+        return finished;
+    }
+
+    public int turn(){return counter;}
 }

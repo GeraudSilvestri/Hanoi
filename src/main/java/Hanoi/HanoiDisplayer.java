@@ -10,7 +10,7 @@ public class HanoiDisplayer {
     }
 
     public void display(Hanoi h){
-        System.out.println("\nTurn " + h.getCounter());
+        System.out.println("\nTurn " + h.turn());
         for(Stack s : h.getStakes()){
             System.out.println(s);
         }
