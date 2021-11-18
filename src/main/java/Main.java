@@ -1,5 +1,5 @@
 import Hanoi.Hanoi;
-import Stack.Stack;
+import util.Stack;
 
 public class Main {
     private static Stack stack1, stack2, stack3;

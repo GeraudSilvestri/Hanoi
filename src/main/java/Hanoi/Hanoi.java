@@ -1,6 +1,6 @@
 package Hanoi;
 
-import Stack.Stack;
+import util.Stack;
 
 public class Hanoi {
     private static final int NB_STAKE = 3;
@@ -10,8 +10,12 @@ public class Hanoi {
     HanoiDisplayer display;
 
     public Hanoi(int nbDisks){
+        this(nbDisks, new HanoiDisplayer(0));
+    }
+
+    public Hanoi(int nbDisks, HanoiDisplayer display){
         this.nbDisks = nbDisks;
-        display = new HanoiDisplayer();
+        this.display = display;
         stakes = new Stack[NB_STAKE];
 
         for(int i = 0; i < NB_STAKE; ++i){

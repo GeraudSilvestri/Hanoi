@@ -1,4 +1,4 @@
-package Stack;
+package util;
 
 public class Element {
     private Object value;

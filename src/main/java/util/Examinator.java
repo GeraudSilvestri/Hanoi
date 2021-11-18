@@ -1,7 +1,4 @@
-package Stack;
-
-import java.util.Spliterator;
-import java.util.function.Consumer;
+package util;
 
 public class Examinator {
     Element current;

@@ -1,4 +1,4 @@
-package Stack;
+package util;
 
 public class Stack {
     Element start;
