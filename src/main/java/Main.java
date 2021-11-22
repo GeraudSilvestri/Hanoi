@@ -1,4 +1,4 @@
-import Hanoi.Hanoi;
+import hanoi.Hanoi;
 import hanoi.gui.JHanoi;
 import util.Stack;
 
@@ -7,11 +7,13 @@ public class Main {
 
     public static void main(String[] args){
 
-        if(args.length != 1){
-            System.out.println("Un seul argument requis.");
+        if(args.length == 1){
+            JHanoi jHanoi = new JHanoi();
         }
         else{
-            JHanoi jHanoi = new JHanoi();
+            int temp = Integer.parseInt(args[1]);
+            Hanoi hanoi = new Hanoi(temp);
+            hanoi.solve();
         }
     }
 
