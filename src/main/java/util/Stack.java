@@ -9,20 +9,15 @@ public class Stack {
     }
 
     public void push(Object o){
-        Element e = new Element(o);
-
-        if(start != null){
-            e.setNext(start);
-        }
         size++;
-        start = e;
+        start = new Element(o, start);
     }
 
-    public Element pop(){
+    public Object pop(){
         Element temp = start;
         start = start.getNext();
         size--;
-        return temp;
+        return temp.value();
     }
 
     public Examinator getIterator(){
@@ -49,7 +44,7 @@ public class Stack {
         int i = 0;
 
         while(ite.hasNext()){
-            array[i++] = ite.next().getValue();
+            array[i++] = ite.next();
         }
 
         return array;

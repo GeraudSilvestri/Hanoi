@@ -1,4 +1,4 @@
-package Hanoi;
+package hanoi;
 
 import util.Stack;
 
@@ -30,6 +30,7 @@ public class Hanoi {
 
     public void solve(){
         finished = false;
+        display.display(this);
         solve(nbDisks, stakes[0], stakes[1], stakes[2]);
         finished = true;
     }
@@ -38,27 +39,28 @@ public class Hanoi {
         if(n > 0) {
             solve(n - 1, from, dest, middle);
             dest.push(from.pop());
-            solve(n-1, middle, from, dest);
             counter++;
             display.display(this);
+            solve(n-1, middle, from, dest);
         }
     }
 
     public Stack[] getStakes(){return stakes;}
 
     public int[][] status(){
-        int[][] toReturn = new int[NB_STAKE][nbDisks];
+        int[][] toReturn = new int[NB_STAKE][];
 
         for(int i = 0; i < NB_STAKE; ++i){
             Object[] values = stakes[i].state();
-            for(int j = 0; j < nbDisks; j++){
-                toReturn[i][j] = (int)values[j];
+            toReturn[i] = new int[stakes[i].size()];
+            for(int j = 0; j < values.length; j++){
+                toReturn[i][j] = (int) values[j];
             }
         }
         return toReturn;
     }
 
-    public Boolean isFinished(){
+    public boolean finished(){
         return finished;
     }
 

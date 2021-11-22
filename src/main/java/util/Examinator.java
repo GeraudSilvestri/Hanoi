@@ -11,8 +11,12 @@ public class Examinator {
         return current != null;
     }
 
-    public Element next(){
-        Element temp = current;
+    public Object next(){
+        if(!hasNext()){
+            throw new RuntimeException();
+        }
+
+        Object temp = current.value();
         this.current = current.getNext();
         return temp;
     }

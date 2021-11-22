@@ -4,10 +4,6 @@ public class Element {
     private Object value;
     private Element next;
 
-    public void setValue(Object value) {
-        this.value = value;
-    }
-
     public void setNext(Element next) {
         this.next = next;
     }
@@ -25,12 +21,10 @@ public class Element {
         value = o;
     }
 
-    public Object getValue() {
-        return value;
-    }
-
     public Element(Object o, Element next){
         this.value = o;
         this.next = next;
     }
+
+    public Object value(){return value;}
 }
